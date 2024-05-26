@@ -20,11 +20,6 @@
     }
   }
 
-  function collapseAllMajor() {
-    collapseAllRules();
-    collapseAllSubs();
-  }
-
   function collapseAllSubs() {
     let subroutines = _Blockly
       .getMainWorkspace()
@@ -67,6 +62,11 @@
         block.setCollapsed(false);
       }
     });
+  }
+
+  function collapseAllMajor() {
+    collapseAllRules();
+    collapseAllSubs();
   }
 
   function expandAllMajor() {
