@@ -20,6 +20,60 @@
     }
   }
 
+  function collapseAllMajor() {
+    collapseAllRules();
+    collapseAllSubs();
+  }
+
+  function collapseAllSubs() {
+    let subroutines = _Blockly
+      .getMainWorkspace()
+      .getBlocksByType("subroutineBlock", false);
+    subroutines.forEach((block) => {
+      if (!block.isCollapsed()) {
+        block.setCollapsed(true);
+      }
+    });
+  }
+
+  function collapseAllRules() {
+    let ruleBlocks = _Blockly
+      .getMainWorkspace()
+      .getBlocksByType("ruleBlock", true);
+    ruleBlocks.forEach((block) => {
+      if (!block.isCollapsed()) {
+        block.setCollapsed(true);
+      }
+    });
+  }
+
+  function expandAllSubs() {
+    let subroutines = _Blockly
+      .getMainWorkspace()
+      .getBlocksByType("subroutineBlock", false);
+    subroutines.forEach((block) => {
+      if (block.isCollapsed()) {
+        block.setCollapsed(false);
+      }
+    });
+  }
+
+  function expandAllRules() {
+    let ruleBlocks = _Blockly
+      .getMainWorkspace()
+      .getBlocksByType("ruleBlock", true);
+    ruleBlocks.forEach((block) => {
+      if (block.isCollapsed()) {
+        block.setCollapsed(false);
+      }
+    });
+  }
+
+  function expandAllMajor() {
+    expandAllRules();
+    expandAllSubs();
+  }
+
   function buildJumpToMenu() {
     let jumpToMenu = plugin.createMenu(
       "jumpToMenu",
